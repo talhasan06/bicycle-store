@@ -3,8 +3,9 @@
     "build": "npx tsc",
     "lint": "npx eslint src",
     "lint:fix": "npx eslint . --fix",
+    "start":"node ./dist/server.js",
+    "start:prod": "node ./dist/server.js",
     "start-dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "start-prod": "node ./dist/server.js",
     "prettier": "npx prettier --write 'src/**/*.ts'",
     "format": "prettier --write ."
   },
