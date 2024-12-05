@@ -11,7 +11,7 @@ app.use(cors());
 app.use("/api", BicycleRoutes);
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, world!");
+  res.send("Hello, Welcome to Bicycle Store!");
 });
 
 export default app;
