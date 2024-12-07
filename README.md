@@ -1,4 +1,4 @@
-# Bicycle Store API
+# Bicycle Store B4A2V4
 
 A RESTful API built with Node.js, Express, and TypeScript for managing a bicycle shop's inventory and orders. This API provides endpoints for managing bicycle products, handling orders, and calculating revenue.
 
@@ -57,6 +57,7 @@ npm run start-prod
 ### Products
 
 - `GET /api/products` - Get all products
+- `GET /api/products?searchTerm=type` (`searchTerm` can be `name`, `brand`, type) - Search a product
 - `GET /api/products/:productId` - Get a single product
 - `POST /api/products` - Create a new product
 - `PUT /api/products/:productId` - Update a product

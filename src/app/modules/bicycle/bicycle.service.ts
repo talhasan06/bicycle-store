@@ -1,7 +1,17 @@
+import ApiError from "../../handleError/ApiError";
 import { TOrder, TProduct } from "./bicycle.interface";
 import { Order, Product } from "./bicycle.model";
 
 const createProductIntoDB = async (productData: TProduct) => {
+  // Check if product with same name exists (case insensitive)
+  const existingProduct = await Product.findOne({
+    name: { $regex: new RegExp(`^${productData.name}$`, "i") },
+  });
+
+  if (existingProduct) {
+    throw new ApiError(409, "Product with this name already exists");
+  }
+
   const result = await Product.create(productData);
   return result;
 };
