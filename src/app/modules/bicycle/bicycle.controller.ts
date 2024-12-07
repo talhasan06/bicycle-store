@@ -23,12 +23,15 @@ const createProduct: RequestHandler = async (req, res, next) => {
 
 const getAllProducts: RequestHandler = async (req, res, next) => {
   try {
-    const result = await ProductNOrderServices.getAllProductsFromDB();
-    if (!result) {
+    const { searchTerm } = req.query;
+    const result = await ProductNOrderServices.getAllProductsFromDB(
+      searchTerm as string
+    );
+    if (!result.length) {
       res.status(404).json({
         success: false,
         message: "No product found",
-        data: {},
+        data: [],
       });
     }
     res.status(200).json({

@@ -18,7 +18,7 @@ export const ProductValidationSchema = z.object({
   description: z.string(),
   quantity: z.number().int().nonnegative("Quantity must be 0 or more"),
   inStock: z.boolean(),
-  isDeleted: z.boolean(),
+  isDeleted: z.boolean().default(false),
 });
 
 // Order Validation Schema

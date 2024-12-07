@@ -15,7 +15,18 @@ const createProductIntoDB = (productData) => __awaiter(void 0, void 0, void 0, f
     const result = yield bicycle_model_1.Product.create(productData);
     return result;
 });
-const getAllProductsFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
+const getAllProductsFromDB = (searchTerm) => __awaiter(void 0, void 0, void 0, function* () {
+    if (searchTerm) {
+        const searchRegex = new RegExp(searchTerm, "i");
+        const result = yield bicycle_model_1.Product.find({
+            $or: [
+                { name: searchRegex },
+                { brand: searchRegex },
+                { type: searchRegex },
+            ],
+        });
+        return result;
+    }
     const result = yield bicycle_model_1.Product.find();
     return result;
 });

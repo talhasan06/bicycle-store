@@ -29,12 +29,13 @@ const createProduct = (req, res, next) => __awaiter(void 0, void 0, void 0, func
 });
 const getAllProducts = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const result = yield bicycle_service_1.ProductNOrderServices.getAllProductsFromDB();
-        if (!result) {
+        const { searchTerm } = req.query;
+        const result = yield bicycle_service_1.ProductNOrderServices.getAllProductsFromDB(searchTerm);
+        if (!result.length) {
             res.status(404).json({
                 success: false,
                 message: "No product found",
-                data: {},
+                data: [],
             });
         }
         res.status(200).json({

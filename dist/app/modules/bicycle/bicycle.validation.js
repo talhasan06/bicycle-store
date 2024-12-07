@@ -19,7 +19,7 @@ exports.ProductValidationSchema = zod_1.z.object({
     description: zod_1.z.string(),
     quantity: zod_1.z.number().int().nonnegative("Quantity must be 0 or more"),
     inStock: zod_1.z.boolean(),
-    isDeleted: zod_1.z.boolean(),
+    isDeleted: zod_1.z.boolean().default(false),
 });
 // Order Validation Schema
 exports.OrderValidationSchema = zod_1.z.object({
