@@ -32,14 +32,6 @@ cd bicycle-shop-api
 npm install
 ```
 
-#### Create a `.env` file in the root directory with the following variables:
-
-```
-PORT = 5000
-DATABASE_URL = mongodb+srv://admin-um:q7VtWGnyEHzmPWDA@cluster0.o4eynrq.mongodb.net/bi-cycle-store?retryWrites=true&w=majority&appName=Cluster0
-BCRYPT_SALT_ROUNDS = 12
-```
-
 ### Run the application
 
 ```
